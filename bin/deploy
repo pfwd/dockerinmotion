@@ -1,0 +1,13 @@
+#!/bin/bash
+
+git pull
+
+source .env
+export $(cut -d= -f1 .env)
+
+docker-compose up -d --build
+
+docker cp ./cron/mysql/db-rebuild mysql:/etc/cron.daily/db-rebuild
+docker exec -i mysql chown root:root /etc/cron.daily/db-rebuild
+docker exec -i mysql chmod 755 /etc/cron.daily/db-rebuild
+docker exec -i mysql /etc/cron.daily/db-rebuild

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    webserver:
+      container_name: webserver
+      image: howtocodewell/manning-webserver-01
+      links:
+         - mysql
+      ports:
+         - 80:80
+      environment:
+         - marketing=true
+    mysql:
+      container_name: mysql
+      image: howtocodewell/manning-database-server-01
+      env_file:
+        - .env

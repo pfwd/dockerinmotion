@@ -1,0 +1,2 @@
+#!/bin/bash
+cat /schemas/rebuild.sql | mysql -u root --password=${MYSQL_ROOT_PASSWORD} ${MYSQL_DATABASE}
