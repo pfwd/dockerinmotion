@@ -1,13 +1,10 @@
 # dockerinmotion
 
 # Install
-```
-$ docker-machine create dockerinmotion
-$ docker-machine env dockerinmotion
-```
 Create env file
 ```
-$ cp .env .env.dist
+$ cp .env.dist .env
+$ vi .env
 ```
 
 Run the deployment
